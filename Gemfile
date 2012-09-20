@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'thin'
 gem 'pg'
-gem 'jefferson', '0.0.2', path: File.join(File.dirname(__FILE__), '/vendor/gems/jefferson-0.0.2')
+gem 'jefferson', '0.0.3', path: File.join(File.dirname(__FILE__), '/vendor/gems/jefferson-0.0.3')
 gem 'typhoeus'
 gem "yajl-ruby", :require => "yajl/json_gem"
 
