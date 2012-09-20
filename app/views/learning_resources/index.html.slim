@@ -1,3 +1,6 @@
+= render partial: "layouts/errors_for", locals: { object: @search_query || SearchQuery.new() }
+= render "layouts/search_form"
+
 h1 = @search_query.search_results_header_text
 
 - if @learning_resources.present?
