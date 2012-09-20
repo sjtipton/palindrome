@@ -5,7 +5,7 @@ namespace :db do
     add_courses
     add_instructors
     add_students
-    #add_enrollments
+    add_enrollments
   end
 end
 
