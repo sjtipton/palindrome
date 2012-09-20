@@ -1,1 +1,6 @@
-h1 Learning Resources
+h1 = @search_query.search_results_header_text
+
+- if @learning_resources.present?
+	ul
+	- @learning_resources.each do |learning_resource|
+		li = link_to learning_resource.locator, learning_resource.locator
