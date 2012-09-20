@@ -1,5 +1,11 @@
 Palindrome::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  HYDRA = Typhoeus::Hydra.new(max_concurrency: 20) # keep from killing some servers
+
+  Jefferson::Config.hydra = HYDRA
+  Jefferson::Config.protocol = "https"
+  Jefferson::Config.host = "node01.public.learningregistry.net"
+  Jefferson::Config.timeout = 10000
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
