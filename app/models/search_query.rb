@@ -9,6 +9,7 @@ class SearchQuery
 
   define_model_callbacks :initializer, only: :after
 
+  validates_presence_of :keywords
   validates_format_of :keywords, with: /\A[a-z\d \.\-\,]+\z/i,
                                 message: "can only contain letters, numbers, commas, periods and hyphens",
                                 allow_blank: true
@@ -39,8 +40,6 @@ class SearchQuery
   def search_results_header_text
     if self.keywords.present? && self.valid?
       header_text = "Learning Resources matching #{self.keywords.titleize}"
-    else
-      header_text = "Learning Resources"
     end
     header_text.to_s
   end
