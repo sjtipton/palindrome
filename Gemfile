@@ -6,6 +6,7 @@ gem 'pg'
 gem 'jefferson', '0.0.3', path: File.join(File.dirname(__FILE__), '/vendor/gems/jefferson-0.0.3')
 gem 'typhoeus'
 gem "yajl-ruby", :require => "yajl/json_gem"
+gem "slim-rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
