@@ -20,10 +20,10 @@ Build the gem
 
 Install the gem
 
-  ruby -S gem install ./pkg/jefferson-0.0.1.gem
+  ruby -S gem install ./pkg/jefferson-0.0.2.gem
 
 To vendorize into a project
 
   cd path/to/project
 
-  gem unpack jefferson -v 0.0.1 --target ./vendor/gems
+  gem unpack jefferson -v 0.0.2 --target ./vendor/gems
