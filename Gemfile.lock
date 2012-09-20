@@ -135,12 +135,9 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   coffee-rails (~> 3.2.1)
-<<<<<<< HEAD
   forgery
-=======
   interactive_editor
   jefferson (= 0.0.1)!
->>>>>>> 818cd8e40cd19d9516fb258723684a751d404fcb
   jquery-rails
   pg
   rails (= 3.2.8)
