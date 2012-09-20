@@ -6,9 +6,13 @@ namespace :db do
 end
 
 def add_institutions
-  4.times do
-    institution = Institution.new
-    institution.name = Forgery(:name).company_name
-    institution.save
+  Forgery.dictionaries[:institutions].each do |i|
+    institution = Institution.create!(name: i)
+  end
+end
+
+def add_courses
+  Forgery.dictionaries[:courses].each do |c|
+    course = Course.create!(name: c)
   end
 end
