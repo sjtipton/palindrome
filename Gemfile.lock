@@ -1,7 +1,7 @@
 PATH
-  remote: vendor/gems/jefferson-0.0.1
+  remote: vendor/gems/jefferson-0.0.2
   specs:
-    jefferson (0.0.1)
+    jefferson (0.0.2)
       activemodel
       activeresource
       activesupport
@@ -134,7 +134,7 @@ DEPENDENCIES
   awesome_print
   coffee-rails (~> 3.2.1)
   interactive_editor
-  jefferson (= 0.0.1)!
+  jefferson (= 0.0.2)!
   jquery-rails
   pg
   rails (= 3.2.8)
