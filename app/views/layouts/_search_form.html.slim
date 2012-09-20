@@ -1,0 +1,9 @@
+.search_box
+	h2 Search Learning Resources
+	= render partial: "layouts/errors_for", locals: { object: @search_query || SearchQuery.new() }
+
+	= form_tag(learning_resources_path, method: "get") do
+		p.input_box
+			= text_field_tag :keywords, @search_query.try(:keywords), { placeholder: "(e.g. math, calculus, functions)" }
+		p.submit
+			= submit_tag "Search"
