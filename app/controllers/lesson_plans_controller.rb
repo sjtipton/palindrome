@@ -23,6 +23,7 @@ class LessonPlansController < ApplicationController
   def show
     @lesson_plan = LessonPlan.find(params[:lesson_plan_id])
     @lesson_plan_resources = @lesson_plan.lesson_plan_resources
+    @similar_lesson_plans = @lesson_plan.similar_lesson_plans
 
     tags = @lesson_plan.topic.gsub(", ", ",")
     Jefferson::LearningResource.api_query(any_tags: tags) { |lrs| @learning_resources = lrs }

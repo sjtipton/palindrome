@@ -5,7 +5,7 @@ class LessonPlan < ActiveRecord::Base
   has_many :lesson_plan_resources
 
 
-  def similar_resources
+  def similar_lesson_plans
     tags = self.topic.split(', ')
     lesson_plans = []
     tags.each do |t|
