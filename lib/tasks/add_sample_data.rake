@@ -67,6 +67,7 @@ def add_lesson_plans
     lp.topic = 'algebra, math, grade 8'
     lp.description = Forgery(:lorem_ipsum).words(10)
     lp.instructor_id = i.id
+    lp.rating = [1,2,3,4,5].sample
     lp.save
     count += 1
   end

@@ -9,4 +9,5 @@ p = link_to "Create a Lesson Plan", new_lesson_plan_path
 		li = link_to "Show", lesson_plan_path(lesson_plan.id)
 		li = link_to "Edit", edit_lesson_plan_path(lesson_plan.id)
 		li Topics: #{lesson_plan.topic}
+        li Rating: #{lesson_plan.rating}
 		li Description: #{lesson_plan.description}

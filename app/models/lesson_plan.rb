@@ -3,4 +3,14 @@ class LessonPlan < ActiveRecord::Base
 
   belongs_to :instructor
   has_many :lesson_plan_resources
+
+
+  def similar_resources
+    tags = self.topic.split(', ')
+    lesson_plans = []
+    tags.each do |t|
+      lesson_plans << LessonPlan.where("topic like ? AND id <> ?", "%#{t}%", self.id)
+    end
+    lesson_plans
+  end
 end
