@@ -19,4 +19,10 @@ Palindrome::Application.routes.draw do
                                                                  constraints: { lesson_plan_id: /[0-9]+/ } do
     post "/" => :index, as: :learning_resources
   end
+
+  # Route for POST of adding resource to a lesson plan
+  scope path: "/lesson-plans/:lesson_plan_id/lesson-resources", controller: "lesson_resources",
+                                                               constraints: { lesson_plan_id: /[0-9]+/ } do
+    post "/" => :create, as: :create_lesson_resource
+  end
 end

@@ -1,0 +1,6 @@
+= form_for :lesson_plan_resource, url: create_lesson_resource_path(@lesson_plan.id), \
+															 remote: true, \
+																 html: { id: "new_lesson_resource" }, \
+															 method: "post" do |f|
+	= f.hidden_field :resource_id, value: r.id
+	= f.submit "Add to Lesson Plan"

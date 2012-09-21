@@ -9,26 +9,6 @@ ul
 	li Rating: #{@lesson_plan.rating}
 	li Description: #{@lesson_plan.description}
 
-- if @lesson_plan_resources.present?
-	h2 Saved Resources
-	ul
-		- @lesson_plan_resources.each do |lesson_plan_resource|
-			- Jefferson::LearningResource.find(lesson_plan_resource.resource_id) { |lr| @learning_resource = lr }
-			- Jefferson::Config.hydra.run
-			li = link_to @learning_resource.locator, @learning_resource.locator
-
-- if @learning_resources.present?
-	h2 Available Resources
-	ul
-		- @learning_resources.each do |learning_resource|
-			li = link_to learning_resource.locator, learning_resource.locator
-
-
-- if @similar_lesson_plans.present?
-	h2 Similar Lesson Plans
-	ul
-		- @similar_lesson_plans.each do |lesson_plan|
-			li
-				=' link_to lesson_plan.title, lesson_plan_path(lesson_plan.id)
-				| (#{lesson_plan.instructor.first_name} #{lesson_plan.instructor.last_name})
+#saved_and_available_resources
+	= render "lesson_plans/saved_and_available_resources"
 
