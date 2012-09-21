@@ -12,18 +12,21 @@ namespace :db do
 end
 
 def add_institutions
+  Institution.destroy_all
   Forgery.dictionaries[:institutions].each do |i|
     institution = Institution.create!(name: i)
   end
 end
 
 def add_courses
+  Course.destroy_all
   Forgery.dictionaries[:courses].each do |c|
     course = Course.create!(name: c)
   end
 end
 
 def add_instructors
+  Instructor.destroy_all
   5.times do
     c = Course.all
     i = Institution.all
@@ -37,6 +40,7 @@ def add_instructors
 end
 
 def add_students
+  Student.destroy_all
   25.times do
     i = Institution.all
     student = Student.new
@@ -48,6 +52,7 @@ def add_students
 end
 
 def add_enrollments
+  Enrollment.destroy_all
   students = Student.all
   courses = Course.all
   students.each do |s|
@@ -59,6 +64,7 @@ def add_enrollments
 end
 
 def add_lesson_plans
+  LessonPlan.destroy_all
   instructors = Instructor.all
   count = 1
   instructors.each do |i|
@@ -74,6 +80,7 @@ def add_lesson_plans
 end
 
 def add_lesson_plans_resources
+  LessonPlanResource.destroy_all
   r_id = ['096c615226f94c408f2c2d7a03f69ba3',
           '632c868103644f7e8b046a1e60dea0ab',
           '80fea543b1964ca6a1bd9efcb80742a0']
