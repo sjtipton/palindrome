@@ -81,5 +81,6 @@ def add_lesson_plans_resources
     lpr = LessonPlanResource.new
     lpr.lesson_plan_id = lp.id
     lpr.resource_id = r_id.sample
+    lpr.save
   end
 end
