@@ -25,4 +25,11 @@ Palindrome::Application.routes.draw do
                                                                constraints: { lesson_plan_id: /[0-9]+/ } do
     post "/" => :create, as: :create_lesson_resource
   end
+
+  # Route for GET student lesson plans
+  scope path: "/students", controller: "students",
+                          constraints: { student_id: /[0-9]+/ } do
+    get "/:student_id" => :show, as: :student
+  end
+
 end

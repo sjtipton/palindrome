@@ -27,14 +27,13 @@ end
 
 def add_instructors
   Instructor.destroy_all
-  5.times do
-    c = Course.all
-    i = Institution.all
+  courses = Course.all
+  courses.each do |c|
     instructor = Instructor.new
     instructor.first_name = Forgery(:name).first_name
     instructor.last_name = Forgery(:name).last_name
-    instructor.institution_id = i.sample.id
-    instructor.course_id = c.sample.id
+    instructor.institution_id = 1
+    instructor.course_id = c.id
     instructor.save
   end
 end
