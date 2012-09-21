@@ -1,3 +1,8 @@
-h1 Start by Creating a Lesson Plan
+- if @lesson_plans.present?
+	h2 Your Existing Lesson Plans
+	ul
+	- @lesson_plans.each do |lesson_plan|
+		li = link_to lesson_plan.title, lesson_plan_path(lesson_plan.id)
 
+h2 Create a Lesson Plan
 = render "lesson_plans/new_form"
