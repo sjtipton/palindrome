@@ -13,6 +13,7 @@ class LessonResourcesController < ApplicationController
 
   	respond_to do |format|
 	  	if @lesson_plan.lesson_plan_resources.create(resource_id: resource_id)
+        @learning_resources = @learning_resources.delete_if { |lr| lr.id.in? @lesson_plan_resources.map(&:resource_id) }
         flash.now[:notice] = "Successfully saved Resource to your Lesson Plan"
         format.js
 	  	end

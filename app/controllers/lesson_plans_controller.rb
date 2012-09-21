@@ -28,6 +28,7 @@ class LessonPlansController < ApplicationController
     tags = @lesson_plan.topic.gsub(", ", ",")
     Jefferson::LearningResource.api_query(any_tags: tags) { |lrs| @learning_resources = lrs }
     Jefferson::Config.hydra.run
+    @learning_resources = @learning_resources.delete_if { |lr| lr.id.in? @lesson_plan_resources.map(&:resource_id) }
   end
 
   def edit
