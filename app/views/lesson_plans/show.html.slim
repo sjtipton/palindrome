@@ -4,6 +4,7 @@ ul
 	li = link_to "Edit", edit_lesson_plan_path(@lesson_plan.id)
 	li = link_to "Destroy", @lesson_plan, confirm: "Are you sure?", method: :delete
 	li Topics: #{@lesson_plan.topic}
+	li Rating: #{@lesson_plan.rating}
 	li Description: #{@lesson_plan.description}
 
 - if @lesson_plan_resources.present?
@@ -19,3 +20,5 @@ ul
 	ul
 		- @learning_resources.each do |learning_resource|
 			li = link_to learning_resource.locator, learning_resource.locator
+
+h2 Similar Lesson Plans
