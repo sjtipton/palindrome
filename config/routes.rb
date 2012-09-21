@@ -2,6 +2,7 @@ Palindrome::Application.routes.draw do
 
   root to: "home#splash"
 
+  # lesson_plans resources
   scope path: "/lesson-plans", controller: "lesson_plans",
                               constraints: { lesson_plan_id: /[0-9]+/ } do
     get "/" => :index, as: :lesson_plans
@@ -13,14 +14,9 @@ Palindrome::Application.routes.draw do
     delete "/:lesson_plan_id" => :destroy, as: :destroy_lesson_plan
   end
 
+  # Routes for POST of a manual search after creating a lesson plan
   scope path: "/lesson-plans/:lesson_plan_id/learning-resources", controller: "learning_resources",
                                                                  constraints: { lesson_plan_id: /[0-9]+/ } do
     post "/" => :index, as: :learning_resources
-  end
-
-  scope path: "/lesson-plans/:lesson_plan_id/learning-resources/:learning_resource_id/lesson-resources", controller: "lesson_resources",
-                                                                                                        constraints: { lesson_plan_id: /[0-9]+/,
-                                                                                                                 learning_resource_id: /[0-9]+/ } do
-    get "/" => :index, as: :lesson_resources
   end
 end
