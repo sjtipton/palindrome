@@ -21,4 +21,11 @@ ul
 		- @learning_resources.each do |learning_resource|
 			li = link_to learning_resource.locator, learning_resource.locator
 
-h2 Similar Lesson Plans
+
+- if @similar_lesson_plans.present?
+	h2 Similar Lesson Plans
+	ul
+		- @similar_lesson_plans.each do |lesson_plans|
+			- lesson_plans.each do |plan|
+				li = link_to plan.title, lesson_plan_path(plan.id)
+
