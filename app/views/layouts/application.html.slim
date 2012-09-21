@@ -7,4 +7,6 @@ head
   = csrf_meta_tags
 
 body
+	p Welcome, #{session[:instructor].first_name} #{session[:instructor].last_name}
+	= render "layouts/notices"
 	= yield

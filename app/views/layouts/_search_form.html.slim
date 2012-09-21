@@ -1,7 +1,7 @@
 .search_box
 	h2 Search Learning Resources
 
-	= form_tag(learning_resources_path, method: "post") do
+	= form_tag(learning_resources_path(params[:lesson_plan_id]), method: "post") do
 		p.input_box
 			= text_field_tag :keywords, @search_query.try(:keywords), { placeholder: "(e.g. math, calculus, functions)" }
 		p.submit

@@ -1,0 +1,7 @@
+h1 = @lesson_plan.title
+
+ul
+	li = link_to "Edit", edit_lesson_plan_path(@lesson_plan.id)
+	li = link_to "Destroy", @lesson_plan, confirm: "Are you sure?", method: :delete
+	li Topics: #{@lesson_plan.topic}
+	li Description: #{@lesson_plan.description}
