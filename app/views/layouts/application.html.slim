@@ -8,5 +8,6 @@ head
 
 body
 	p Welcome, #{session[:instructor].first_name} #{session[:instructor].last_name}
-	= render "layouts/notices"
+	#notices_and_alerts
+		= render "layouts/notices"
 	= yield
