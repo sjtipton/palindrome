@@ -4,4 +4,9 @@ class ApplicationController < ActionController::Base
   def authenticate_instructor!
   	session[:instructor] ||= Instructor.all.sample
   end
+
+  def authenticate_student!
+    session[:student] = Student.find(params[:student_id])
+  end
+
 end
