@@ -1,4 +1,6 @@
-h1 = @lesson_plan.title
+h1
+	=' @lesson_plan.title
+	| (#{@lesson_plan.instructor.first_name} #{@lesson_plan.instructor.last_name})
 
 ul
 	li = link_to "Edit", edit_lesson_plan_path(@lesson_plan.id)
