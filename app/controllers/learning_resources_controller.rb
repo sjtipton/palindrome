@@ -1,4 +1,5 @@
 class LearningResourcesController < ApplicationController
+	before_filter :authenticate_instructor!
 
   def index
     @search_query_params = { keywords: params[:keywords] }

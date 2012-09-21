@@ -1,0 +1,12 @@
+h1 Your Lesson Plans
+
+p = link_to "Create a Lesson Plan", new_lesson_plan_path
+
+- if @lesson_plans.present?
+	ul
+	- @lesson_plans.each do |lesson_plan|
+		h2 = lesson_plan.title
+		li = link_to "Show", lesson_plan_path(lesson_plan.id)
+		li = link_to "Edit", edit_lesson_plan_path(lesson_plan.id)
+		li Topics: #{lesson_plan.topic}
+		li Description: #{lesson_plan.description}

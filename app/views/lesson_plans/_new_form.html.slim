@@ -1,0 +1,17 @@
+.widget
+	div.body
+		= render partial: "layouts/errors_for", locals: { object: @lesson_plan }
+		= form_for :lesson_plan, url: create_lesson_plan_path, \
+													  html: { id: "new_lesson_plan" }, \
+												  method: "post" do |f|
+			div
+				= f.label :title
+				= f.text_field :title
+			div
+				= f.label :topic
+				= f.text_field :topic
+			div
+				= f.label :description
+				= f.text_area :description, size: "30x8"
+				= f.hidden_field :instructor_id, value: session[:instructor].id
+			div = f.submit "Create Lesson Plan"
