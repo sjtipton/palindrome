@@ -22,13 +22,10 @@ class LessonPlansController < ApplicationController
 
   def show
     @lesson_plan = LessonPlan.find(params[:lesson_plan_id])
-    #TODO: Fix the first somehow by finding by resource_id
-    @lesson_plan_resource = LessonPlanResource.where(lesson_plan_id: @lesson_plan.id).first
+    @lesson_plan_resources = @lesson_plan.lesson_plan_resources
 
     tags = @lesson_plan.topic.gsub(", ", ",")
     Jefferson::LearningResource.api_query(any_tags: tags) { |lrs| @learning_resources = lrs }
-    Jefferson::LearningResource.find(@lesson_plan_resource.resource_id) { |lr| @learning_resource = lr }
-    #TODO: Jefferson::LearningResource.find_by_resource_id
     Jefferson::Config.hydra.run
   end
 

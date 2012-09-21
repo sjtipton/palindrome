@@ -6,10 +6,13 @@ ul
 	li Topics: #{@lesson_plan.topic}
 	li Description: #{@lesson_plan.description}
 
-- if @lesson_plan_resource.present?
+- if @lesson_plan_resources.present?
 	h2 Saved Resources
 	ul
-		li = link_to @learning_resource.locator, @learning_resource.locator
+		- @lesson_plan_resources.each do |lesson_plan_resource|
+			- Jefferson::LearningResource.find(lesson_plan_resource.resource_id) { |lr| @learning_resource = lr }
+			- Jefferson::Config.hydra.run
+			li = link_to @learning_resource.locator, @learning_resource.locator
 
 - if @learning_resources.present?
 	h2 Available Resources
