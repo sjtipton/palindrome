@@ -25,7 +25,8 @@ ul
 - if @similar_lesson_plans.present?
 	h2 Similar Lesson Plans
 	ul
-		- @similar_lesson_plans.each do |lesson_plans|
-			- lesson_plans.each do |plan|
-				li = link_to plan.title, lesson_plan_path(plan.id)
+		- @similar_lesson_plans.each do |lesson_plan|
+			li
+				=' link_to lesson_plan.title, lesson_plan_path(lesson_plan.id)
+				| (#{lesson_plan.instructor.first_name} #{lesson_plan.instructor.last_name})
 

@@ -11,6 +11,6 @@ class LessonPlan < ActiveRecord::Base
     tags.each do |t|
       lesson_plans << LessonPlan.where("topic like ? AND id <> ?", "%#{t}%", self.id)
     end
-    lesson_plans
+    lesson_plans.flatten.uniq
   end
 end
