@@ -5,3 +5,14 @@ ul
 	li = link_to "Destroy", @lesson_plan, confirm: "Are you sure?", method: :delete
 	li Topics: #{@lesson_plan.topic}
 	li Description: #{@lesson_plan.description}
+
+- if @lesson_plan_resource.present?
+	h2 Saved Resources
+	ul
+		li = link_to @learning_resource.locator, @learning_resource.locator
+
+- if @learning_resources.present?
+	h2 Available Resources
+	ul
+		- @learning_resources.each do |learning_resource|
+			li = link_to learning_resource.locator, learning_resource.locator
